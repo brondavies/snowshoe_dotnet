@@ -1,0 +1,67 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Stamp this!</title>
+
+    <!-- Sets initial viewport load and disables zooming  -->
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <!-- Makes your prototype chrome-less once bookmarked to your phone's home screen -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link href="~/Content/stamp.css" rel="stylesheet" />
+</head>
+<body style="min-height: 480px; background-color:#FFFFFF;">
+    <!-- Google Tag Manager -->
+    <noscript>
+        <iframe src="//www.googletagmanager.com/ns.html?id=GTM-M73HXJ"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <script>
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-M73HXJ');</script>
+    <!-- End Google Tag Manager -->
+    <!-- SnowShoe jQuery animations -->
+    <div id="snowshoe-progress-bar"></div>
+    <!-- SnowShoe jQuery messages -->
+    <div id="snowshoe-messages" style="top:5%;"></div>
+
+    <canvas id="canvas" style="background-image: url(http://www.snowshoestamp.com/static/api/img/stamp.gif); background-color:#FFFFFF;"></canvas>
+
+    <script type="text/javascript" src="//www.snowshoestamp.com/static/core/js/jquery/2.0.0/jquery.min.js"></script>
+    <script type="text/javascript" src="//www.snowshoestamp.com/static/api/js/sss.newcanvas.js"></script>
+    <script type="text/javascript" src="//www.snowshoestamp.com/static/core/js/modernizr-2.6.2.min.js"></script>
+    <script type="text/javascript" src="//www.snowshoestamp.com/static/core/js/hide_address_bar.js"></script>
+
+    <!-- SnowShoe jQuery Initialization Object -->
+    <script>
+          var stampScreenInitData = {
+            "postUrl": "/snowshoe/stamp/",
+            "stampScreenElmId": "canvas",
+            "progressBarOn": true,
+            "messages": {
+              "userTraining" : "<h3>Keep holding</h3>",
+              "insufficientPoints" : "<h3>Try again!</h3>"
+            }
+          }
+          // Resize canvas dynamically based on screens size
+          sss.canvas.init();
+    </script>
+    <!-- SnowShoe jQuery Module -->
+    <script src="//s3.amazonaws.com/snap-together-cdn/public/snowshoe-jquery/0.3.0/jquery.snowshoe.js"></script>
+    <!-- For HTTP POST stamp events, remove the pulse animation -->
+    <script>
+          window.onpopstate=function(){
+            $('#snowshoe-progress-bar').removeClass("snowshoe-progress-bar");
+          };
+    </script>
+    <!-- End of Async HubSpot Analytics Code -->
+</body>
+</html>
